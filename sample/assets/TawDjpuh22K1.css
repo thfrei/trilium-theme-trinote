@@ -1,0 +1,80 @@
+/*
+ * This is my theme
+ * into options (top-right corner) in first tab "Appearance".
+ *
+ * You can read some details on theming here: http://github.com/zadam/trilium/wiki/Themes
+ */
+
+body.theme-tom-trilium {
+    --main-font-size: normal;
+    --tree-font-family: inherit;
+    --tree-font-size: normal;
+    --detail-font-family: inherit;
+    --detail-font-size: normal;
+
+    --main-background-color: #404552;
+    --main-text-color: #AFB8C6; /* also <pre> in text*/
+    --main-border-color: #AFB8C6;
+    --accented-background-color: #383C4A;
+    --more-accented-background-color: #2F343F;
+    --header-background-color: #383C4A;
+    --button-background-color: #2F343F;
+    --button-disabled-background-color: #404552;
+    --button-border-color: #333;
+    --button-text-color: #AFB8C6;
+    --button-border-radius: 2px;
+    --primary-button-background-color: #6c757d;
+    --primary-button-text-color: white;
+    --primary-button-border-color: #6c757d;
+    --muted-text-color: #86919F;
+    --input-text-color: #AFB8C6;
+    --input-background-color: #404552;
+    --hover-item-text-color: white;
+    --hover-item-background-color: #4877B1;
+    --active-item-text-color: white;
+    /* --active-item-background-color: #4877B1; */
+    --active-item-background-color: #383C4A; /* scrollbar and other */
+    --menu-text-color: #AFB8C6;
+    --menu-background-color: #383C4A;
+    --tooltip-background-color: #383C4A;
+    --link-color: lightskyblue;
+    --modal-background-color: #404552;
+    --modal-backdrop-color: black;
+    --scrollbar-border-color: rgba(175, 184, 198, 0.5);
+}
+
+/* fix: code in note with light background */
+body.theme-tom-trilium .note-detail {
+    background-color: #F0F0F0;
+    color: black;
+    --main-text-color: #555555; /* <pre> von theme allgemein überschreiben */
+}
+
+/* fix: note overview uses main-background for note-card */
+body.theme-tom-trilium .note-book-card, 
+body.theme-tom-trilium .note-book-auto-message
+{
+    background-color: var(--hover-item-text-color);
+    border: 1px solid black;
+}
+
+/* steel-blue note background is dark, so notes are rendered
+   with light font-color. Since we changed note background to light
+   we do not need to change code font-color
+body.theme-tom-trilium .CodeMirror {
+   filter: invert(100%) hue-rotate(180deg);
+}
+ */
+
+/* fix: ck-editor tables take main background-color */
+body.theme-tom-trilium .ck-widget.table td.ck-editor__nested-editable.ck-editor__nested-editable_focused,
+body.theme-tom-trilium .ck-widget.table td.ck-editor__nested-editable:focus {
+    background-color: var(--hover-item-text-color);
+}
+
+
+/* make notes tree denser (less spacing) */
+body.theme-tom-trilium span.fancytree-node { 
+	height: 1.4rem;
+}
+
