@@ -28,8 +28,8 @@ template used for this template: MELON 3 by https://github.com/raphwriter/
 /* colors */
 html {
   /* color variables */
-  --trinote-primary-base: hsl(212, 58%, 35%);
-  --trinote-primary-hs: 212, 58%;
+  --trinote-primary-base: hsl(212, 30%, 40%);
+  --trinote-primary-hs: 212, 30%;
   --trinote-primary-l: 35%;
   --trinote-primary: hsl(var(--trinote-primary-hs), var(--trinote-primary-l));
   --trinote-primary-darker: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l)-5%));
