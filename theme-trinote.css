@@ -1,0 +1,900 @@
+/* ===================================================================== */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* 
+Trinote: A onenote (tm) inspired template with dark mode
+
+* Palette generator:
+http://colormind.io/bootstrap/
+F3F8EF, EFA765, E8523F, 706C74, 325892
+* Convert colors:
+https://www.w3schools.com/colors/colors_picker.asp
+* Relative Colors css:
+https://stackoverflow.com/questions/55329996/how-to-create-color-shades-using-css-variables-similar-to-darken-of-sass
+
+    --color:0, 100%;
+    --l:50%; 
+    
+    --color-primary: hsl(var(--color),var(--l));
+    --color-primary-darker: hsl(var(--color),calc(var(--l) - 5%));
+    --color-primary-darkest: hsl(var(--color),calc(var(--l) - 10%)); 
+
+
+A theme for Trilium (https://github.com/zadam/trilium)
+template used for this template: MELON 3 by https://github.com/raphwriter/
+*/
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* ===================================================================== */
+
+/* colors */
+html {
+  /* color variables */
+  --trinote-primary-base: hsl(173, 58%, 35%);
+  --trinote-primary-hs: 173, 58%;
+  --trinote-primary-l: 35%;
+  --trinote-primary: hsl(var(--trinote-primary-hs), var(--trinote-primary-l));
+  --trinote-primary-darker: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l)-5%));
+  --trinote-primary-darkest: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l)-10%));
+
+  --trinote-secondary: #e9c46a;
+
+  --trinote-accent-base: hsl(12, 76%, 60%);
+  --trinote-accent-hs: 12, 76%;
+  --trinote-accent-l: 60%;
+  --trinote-accent: hsl(var(--trinote-accent-hs), var(--trinote-accent-l));
+  --trinote-accent-light: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l)+5%));
+  --trinote-accent-text: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l)+25%));
+
+  --trinote-text: #f5f5f5;
+  --trinote-background: hsl(0, 0%, 40%);
+
+  --trinote-color-blue-dark: var(--trinote-primary-darkest);  /*primary-darkest*/
+  --trinote-color-blue-dark-text: #a0b7c1; /*text-darker*/
+  --trinote-color-blue-light: var(--trinote-primary); /*primary*/
+  --trinote-color-yellow: #e9c46a; /*scondary*/
+  --trinote-color-orange-light: var(--trinote-accent-light); /*accent-light*/
+  --trinote-color-orange-dark: var(--trinote-accent); /*accent*/
+  --trinote-color-gray: #d6d6d6; 
+  --trinote-color-gray-text: #333;
+  --trinote-color-gray-light: var(--trinote-text); /*text*/
+  --trinote-color-gray-light-text: #999;
+  --trinote-color-gray-dark: #666;
+  --trinote-color-paper: #ecebe3;
+  --trinote-color-shadow: rgba(181, 181, 181, 0.6);
+  --trinote-note-background: white;
+  --active-item-text-color: var(--trinote-accent-light);
+  --active-item-background-color: var(--trinote-accent-light);
+
+  --border-radius-small: 3px;
+  --border-radius-tabs: 3px;
+  --border-standard: 1px solid var(--trinote-color-gray);
+  --border-accent: 2px solid var(--trinote-color-orange-dark);
+  --border-accent-alt: 2px solid var(--trinote-color-blue-light);
+  --border-accent-muted: 2px solid var(--trinote-color-gray-dark);
+  --border-accent-light: 1px dotted var(--trinote-color-blue-dark-text);
+
+  --shadow-standard: 3px 4px 3px -3px var(--trinote-color-shadow);
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: 0.9;
+    transition: opacity 0.5s ease-in-out;
+  }
+  img:hover {
+    opacity: 1;
+  }
+  body.theme-trinote .section-yellow {
+    background-color: black;
+    color: yellow;
+  }
+}
+
+/* font declarations */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/custom/fonts/open-sans-v17-latin-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/custom/fonts/open-sans-v17-latin-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 600;
+  src: url("/custom/fonts/open-sans-v17-latin-600italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/custom/fonts/open-sans-v17-latin-600.woff") format("woff");
+}
+
+/* Fira Sans */
+@font-face {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/custom/fonts/firasans-light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/custom/fonts/FiraSans-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Fira Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/custom/fonts/FiraMono-Regular.woff") format("woff");
+}
+
+/* roboto-slab */
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 200;
+  src: url("/custom/fonts/roboto-slab-v11-latin-200.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/custom/fonts/roboto-slab-v11-latin-300.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/custom/fonts/roboto-slab-v11-latin-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/custom/fonts/roboto-slab-v11-latin-600.woff") format("woff");
+}
+
+/* hyperlinks */
+body.theme-trinote div#root-widget a,
+body.theme-trinote div#root-widget a:visited,
+body.theme-trinote div#root-widget a:hover {
+  color: var(--trinote-color-blue-dark);
+}
+
+/* font variables */
+body.theme-trinote div#root-widget {
+  --main-font-family-sans: "Open Sans", "Fira Sans", "Source Sans Pro",
+    "Liberation Sans", Arial, Sans-serif;
+  --main-font-family-serif: "Roboto Slab", Georgia, Serif;
+  --main-font-family-mono: "Fira Mono", "Source Code Pro", Courier, Monospace;
+  --detail-text-font-family: "Open Sans", "Fira Sans", Arial, Sans-serif;
+
+  --font-headers: "Roboto Slab", Georgia, Serif;
+  --font-body: "Open Sans", "Fira Sans", "Source Sans Pro", "Liberation Sans",
+    Arial, Sans-serif;
+  --font-code: "Fira Mono", "Source Code Pro", Courier, Monospace;
+  background-color: var(--accented-background-color);
+}
+
+/* ============================================================================= */
+/* ================================ TOP PANE =================================== */
+/* ============================================================================= */
+
+/* selects first "component"-classed child of #root-widget */
+/* which happens to be the tab-bar */
+body.theme-trinote #root-widget > div.component:first-of-type,
+body.theme-trinote .standard-top-widget {
+  align-items: center;
+  /*! border-bottom: 1px solid lightgray; */
+  min-height: 50px;
+}
+
+body.theme-trinote
+  #root-widget
+  > div.component:first-of-type
+  .global-menu-wrapper {
+  border: none;
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
+/* make top all blue */
+body.theme-trinote #root-widget > div.component:first-of-type,
+body.theme-trinote
+  #root-widget
+  > div.component:first-of-type
+  .global-menu-wrapper {
+  background: var(--trinote-color-blue-light);
+}
+
+body.theme-trinote .note-tab-row-container {
+  background: var(--trinote-color-blue-light);
+}
+
+body.theme-trinote .tab-row-filler {
+  background: var(--trinote-color-blue-light);
+}
+
+/* hide tabbar bottom border thingie */
+body.theme-trinote
+  #root-widget
+  > div.component:first-of-type
+  .tab-row-filler
+  .tab-row-border {
+  display: none;
+}
+
+/* TAB / BUTTON [CLOSE TAB] */
+body.theme-trinote
+  #root-widget
+  > div.component:first-of-type
+  .note-tab-row
+  .note-tab
+  .note-tab-close {
+  color: var(--trinote-color-blue-light);
+  border: var(--border-standard);
+  border-radius: var(--border-radius-small);
+  margin-left: 5px;
+}
+
+/* TAB / BUTTON [CLOSE TAB] / ICON */
+body.theme-trinote .note-tab-row .note-tab .note-tab-close span {
+  font-size: 16px;
+  top: -2px;
+}
+
+/* TAB ROW / BUTTON [NEW TAB] */
+body.theme-trinote .note-new-tab {
+  color: var(--trinote-color-gray-light);
+  border-bottom: none;
+
+  font-size: 1.3rem;
+  font-weight: lighter;
+}
+
+body.theme-trinote .note-new-tab:hover {
+  border-radius: var(--border-radius-standard);
+  background-color: var(--trinote-color-orange-dark);
+  color: white;
+  border: none;
+}
+
+body.theme-trinote .note-tab-row {
+  border-radius: 0 !important;
+  margin-top: 0px;
+}
+
+body.theme-trinote .note-tab-row .note-tab .note-tab-wrapper {
+  /*border-top-left-radius: var(--border-radius-tabs);
+    border-top-right-radius: var(--border-radius-tabs);*/
+}
+
+/* TAB ROW - WRAPPER */
+body.theme-trinote .note-tab .note-tab-wrapper {
+  /*background-image: none;
+    background-color: var(--trinote-color-gray-light);
+    box-shadow: inset 0 -15px 7px -12px var(--trinote-color-shadow);*/
+  font-size: 90%;
+}
+
+/* TAB [INACTIVE & ACTIVE] */
+body.theme-trinote .note-tab-row .note-tab .note-tab-drag-handle {
+  border-radius: 0;
+}
+
+/* TAB [INACTIVE & ACTIVE] - WRAPPER */
+body.theme-trinote
+  #root-widget
+  > div.component:first-of-type
+  .note-tab-wrapper {
+  border-radius: var(--border-radius-small);
+  margin-right: 5px;
+  align-items: center;
+  display: flex;
+}
+
+/* TAB [INACTIVE & ACTIVE] - TITLE */
+body.theme-trinote .note-tab .note-tab-wrapper .note-tab-title {
+  color: var(--trinote-color-gray-text);
+  text-overflow: ellipsis;
+}
+
+/* TAB [INACTIVE & ACTIVE] */
+body.theme-trinote #root-widget > div.component:first-of-type .note-tab {
+  margin-left: 0;
+  margin-right: 3px;
+  bottom: 0;
+  height: 35px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: var(--font-headers);
+  padding: 5px 5px;
+}
+
+/* TAB [ACTIVE] - WRAPPER */
+body.theme-trinote .note-tab[active] .note-tab-wrapper {
+  border-bottom: var(--border-accent);
+  margin-right: 5px;
+}
+
+/* TAB [ACTIVE] - TITLE */
+bbody.theme-trinote
+  #root-widget
+  > div.component:first-of-type
+  div.note-tab[active]
+  .note-tab-wrapper
+  .note-tab-title {
+  color: var(--trinote-color-orange-dark);
+  font-weight: normal;
+}
+
+/* TAB [ACTIVE] */
+body.theme-trinote
+  #root-widget
+  > div.component:first-of-type
+  .note-tab[active] {
+  border: none;
+  border-radius: var(--border-radius-small);
+}
+
+/* SECONDARY MENU BAR */
+body.theme-trinote .standard-top-widget {
+  background: var(--trinote-color-gray-light);
+  /*! border-bottom: 1px solid var(--trinote-color-blue-light); */
+  margin-bottom: 5px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  box-shadow: inset 0 0px 10px -5px var(--trinote-color-gray-dark);
+}
+
+body.theme-trinote div#plugin-buttons {
+  margin-right: 1rem;
+}
+
+/* ============================================================================= */
+/* ================================ LEFT PANE ================================== */
+/* ============================================================================= */
+
+/* make notes tree denser (less spacing) */
+body.theme-trinote span.fancytree-node {
+  height: 1.4rem;
+}
+
+/* GLOBAL BUTTONS */
+body.theme-trinote div#left-pane .global-buttons {
+  border-radius: var(--border-radius-small);
+  border: var(--border-standard);
+  color: var(--trinote-color-blue-dark);
+  border: none;
+  margin: 0;
+  border-bottom: var(--border-accent-alt);
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 2px 3px 2px;
+}
+
+/* grow global buttons */
+body.theme-trinote div#left-pane .global-buttons a {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* hide the breadcrumbs/path widget */
+body.theme-trinote div.note-paths-widget {
+  display: none;
+}
+
+body.theme-trinote div#left-pane .tree-settings-popup button {
+  color: var(--trinote-color-gray-light);
+}
+
+/* "SYMLINK" */
+body.theme-trinote span.fancytree-title::after {
+  color: var(--trinote-color-orange-dark);
+  font-family: var(--font-headers);
+  /* overflow-x: hidden;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;*/
+}
+
+/* SIDEBAR */
+body.theme-trinote div#left-pane {
+  background-color: var(--trinote-color-gray-light);
+  border: var(--border-standard);
+  margin-left: 10px;
+  margin-top: 5px;
+  margin: 5px 5px 0 10px;
+  border-radius: var(--border-radius-small);
+}
+
+/* TREE MENU */
+
+/* hide caret of childless notes */
+body.theme-trinote
+  .fancytree-node:not(.fancytree-folder)
+  .fancytree-expander::before {
+  display: none;
+}
+
+body.theme-trinote div.tree-wrapper,
+body.theme-trinote div.tree {
+  font-family: var(--font-headers);
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+/* SIDEBAR MENU ITEM [SECONDARY SELECTED] */
+body.theme-trinote span.fancytree-selected .fancytree-title {
+  background-color: var(--trinote-color-gray);
+  border-color: var(--main-background-color); /* invisible border */
+  border-radius: 0;
+  color: var(--trinote-color-gray-text);
+  font-style: normal;
+}
+
+/* SIDEBAR MENU ITEM [FOCUSED] */
+body.theme-trinote span.fancytree-focus .fancytree-title,
+body.theme-trinote span.fancytree-focus .fancytree-selected .fancytree-title {
+  border: none;
+  background-color: none;
+}
+
+/* SIDEBAR MENU ITEM [SECONDARY SELECTED:HOVER] */
+body.theme-trinote span.fancytree-node:hover span.fancytree-title {
+  background-color: var(--trinote-color-gray-light-text);
+  border-color: var(--main-border-color);
+  border-radius: 0;
+}
+
+body.theme-trinote
+  span.fancytree-active:not(.fancytree-focused)
+  .fancytree-title {
+  border: none !important;
+  font-weight: normal;
+}
+
+body.theme-trinote .fancytree-active {
+  background: var(--trinote-color-blue-light);
+  border-radius: var(--border-radius-small);
+  color: var(--trinote-color-gray-light);
+  width: 95%;
+}
+
+body.theme-trinote
+  div.tree-wrapper.component
+  .fancytree-container
+  ul[role="group"] {
+  /*border-left: 1px dotted gray;
+    margin-left: 0.1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;*/
+}
+
+body.theme-trinote
+  div.tree-wrapper.component
+  .fancytree-container
+  li[role="treeitem"] {
+  padding: 0px;
+}
+
+body.theme-trinote span.fancytree-title {
+  border: none;
+  background: none;
+}
+
+/* CONTEXT MENU ITEM [ACTIVE (on click)]*/
+body.theme-trinote .fancytree-node .fancytree-title:active {
+  background: transparent;
+}
+
+/* CONTEXT MENU ITEM [active item background ("fix"?!)]*/
+body.theme-trinote span.fancytree-active .fancytree-title {
+  background: transparent !important;
+  /*border-radius: 3px;*/
+  color: var(--trinote-color-gray-light) !important;
+}
+
+/* CONTEXT MENU ITEM [active&hover item background ("fix"?!)]*/
+body.theme-trinote span.fancytree-active .fancytree-title:hover {
+  /*background: transparent !important;*/
+  /*border-radius: 0;*/
+}
+
+/* ============================================================================= */
+/* ================================ CENTER PANE ================================ */
+/* ============================================================================= */
+
+body.theme-trinote div#center-pane {
+  margin: 0;
+  background: var(--trinote-note-background);
+  border-radius: var(--border-radius-small);
+}
+
+/* message on top of notes and book view */
+body.theme-trinote .alert.alert-warning,
+body.theme-trinote .note-book-auto-message {
+  background: var(--trinote-color-gray-light);
+  border: var(--border-standard) !important;
+  /* border-bottom: var(--border-accent-muted) !important; */
+  border-radius: var(--border-radius-small);
+  color: var(--trinote-color-gray-dark);
+  font-size: 90%;
+  font-style: italic;
+  font-size: 90%;
+  margin-bottom: 0.5rem;
+  padding: 3px 15px;
+  /* text-align: center; */
+  text-align: left;
+  width: 100%;
+}
+
+/* mute hide/show children button */
+body.theme-trinote .note-book-children .note-book-hide-children-button,
+body.theme-trinote .note-book-children .note-book-open-children-button {
+  color: var(--trinote-color-gray-dark);
+  font-size: 90%;
+  margin: 10px 0;
+  display: block;
+  text-align: center;
+}
+
+/* book view */
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  > .note-detail-book-content
+  > div.note-book-card
+  .note-book-content {
+  /* display: none; */ /* <-- uncomment this to hide note-contents in book view */
+  font-family: var(--font-body);
+  flex-grow: 0;
+}
+
+/* move first "show / hide children" button to right */
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card {
+  /*display: flex;
+    flex-direction: row;*/
+}
+
+/* structure nested notes in book view */
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  .note-book-card {
+  /*align-items: flex-start;*/
+  /* border-left: var(--border-standard); */
+  margin: 10px 0 35px;
+  background: var(--trinote-color-gray-light);
+}
+
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  h1,
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  h2,
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  h3,
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  h4,
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  h5 {
+  font-size: 100%;
+}
+
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  .note-book-card
+  h5 {
+  padding: 5px 5px 10px;
+  font-size: 95%;
+}
+
+body.theme-trinote
+  .note-detail
+  .note-detail-book
+  .note-detail-book-content
+  > .note-book-card
+  .note-book-card
+  .note-book-children {
+  border-top: none;
+}
+
+body.theme-trinote .note-book-card {
+  background-color: var(--trinote-color-gray-light);
+  border: var(--border-standard);
+  border-radius: var(--border-radius-small);
+  box-shadow: var(--shadow-standard);
+  flex-grow: 1;
+}
+
+body.theme-trinote .note-book-children {
+  /* display: flex; */
+  /* flex-direction: column; */
+  border-top: var(--border-accent-light);
+  margin: 0px -15px -5px;
+  padding: 4px 15px 5px;
+  background: none;
+}
+
+body.theme-trinote .note-book-card h5 {
+  font-size: 100%;
+  background-color: var(--trinote-color-gray-light);
+  margin: -15px -15px 0;
+  padding: 15px;
+}
+
+/* note title */
+body.theme-trinote input.note-title {
+  border: var(--border-standard);
+  border-radius: var(--border-radius-small);
+  border-bottom: var(--border-accent);
+  box-shadow: var(--shadow-standard);
+  font-size: 150%;
+  font-family: var(--font-headers);
+  font-weight: 600;
+  padding: 3px 10px;
+  color: var(--trinote-color-gray-text) !important;
+  /* background-color: var(--trinote-color-gray-light) !important; */
+}
+
+/* buttons */
+body.theme-trinote .btn {
+  border-radius: var(--border-radius-small);
+  color: var(--trinote-color-blue-dark);
+  align-items: center;
+}
+
+body.theme-trinote .dropdown {
+  align-self: center;
+}
+
+/* note buttons - type, actions */
+body.theme-trinote div.note-type,
+body.theme-trinote div.note-actions {
+  font-size: 80%;
+}
+
+/* note body */
+body.theme-trinote div.note-detail {
+  /* background-color: var(--trinote-color-gray-light); */
+  box-shadow: 1px 1px 1px 1px var(--trinote-color-gray-light);
+  border: var(--border-standard);
+  border-radius: var(--border-radius-small);
+  display: block;
+  font-family: var(--font-body);
+  margin: 5px;
+}
+
+body.theme-trinote .note-detail-book-content a,
+body.theme-trinote .note-detail-book-content a:visited {
+  color: var(--trinote-color-blue-dark);
+}
+
+body.theme-trinote .note-detail-book-content a:hover {
+  color: var(--trinote-color-blue-light);
+}
+
+body.theme-trinote .note-detail-text {
+  color: var(--trinote-color-gray-text);
+  font-family: var(--font-body);
+  line-height: 1.45;
+}
+
+/* images */
+
+body.theme-trinote .ck-content .image {
+  border: var(--border-standard);
+  border-radius: var(--border-radius-small);
+  margin: 5px;
+  padding: 5px;
+}
+
+/* h1 */
+body.theme-trinote h1 {
+  border-bottom: 2px solid var(--trinote-color-orange-dark);
+  color: var(--trinote-color-gray-text);
+  display: table;
+  font-family: var(--font-headers);
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+/* first h1 in a note should not have such a large top margin */
+body.theme-trinote h1:first-of-type {
+  margin-top: 0.8rem;
+}
+
+/* h2 */
+body.theme-trinote h2 {
+  color: var(--trinote-color-gray-text);
+  font-family: var(--font-headers);
+  font-size: 21px;
+  margin-bottom: 0.6rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px dotted var(--trinote-color-gray-text);
+  display: table;
+  padding: 3px 0px;
+}
+
+/* h2 following directly after h1 */
+body.theme-trinote h1 + h2 {
+  margin-top: 0.6rem;
+}
+
+/* h3 */
+body.theme-trinote h3 {
+  color: var(--trinote-color-blue-light);
+  font-family: var(--font-headers);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+}
+
+/* code */
+
+body.theme-trinote .ck-content pre {
+  background: var(--trinote-color-gray-light);
+  border: var(--border-standard);
+  /*border-left: var(--border-accent-muted);*/
+}
+
+body.theme-trinote .ck-content pre code {
+  color: var(--trinote-color-gray-text) !important;
+  font-family: var(--font-code);
+}
+
+/* Checklists */
+body.theme-trinote .ck-content .todo-list .todo-list__label > input::before {
+  background: var(--trinote-color-gray-light);
+  border: var(--border-standard) !important;
+  border-color: var(--trinote-color-blue-light) !important;
+}
+
+body.theme-trinote
+  .ck-content
+  .todo-list
+  .todo-list__label
+  > input[checked]::before {
+  background: var(--trinote-color-blue-light);
+  border-color: var(--trinote-color-blue-dark);
+}
+
+/* ============================================================================= */
+/* ================================ RIGHT PANE ================================= */
+/* ============================================================================= */
+
+body.theme-trinote div#right-pane {
+  font-size: 95%;
+  color: var(--trinote-color-gray-dark);
+  margin: 5px 10px 0 5px;
+}
+
+/* List Items */
+body.theme-trinote div#right-pane li {
+  //list-style-type: square;
+}
+
+/* Widget */
+body.theme-trinote div#right-pane .card {
+  border: var(--border-standard);
+  box-shadow: var(--shadow-standard);
+  margin: 0 0 10px 0;
+  /* margin-top: 0.5rem; */
+}
+
+/* Widget Header */
+body.theme-trinote div#right-pane .card-header {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: none;
+  border-bottom: var(--border-accent-alt);
+  width: 100%;
+  height: 38px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--trinote-color-gray-light); /*thfrei*/
+  /* no multiline header */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+body.theme-trinote #right-pane .widget-title {
+  font-weight: 600;
+  font-family: var(--font-headers);
+}
+
+body.theme-trinote
+  div#right-pane
+  .card
+  .card-header
+  .widget-header-actions
+  a.widget-header-action {
+  color: var(--trinote-color-blue-dark) !important;
+  font-size: 0.8rem;
+}
+
+/* Widget Body */
+body.theme-trinote div#right-pane .card-body {
+  color: var(--trinote-color-gray-dark);
+  font-family: var(--font-body);
+}
+
+body.theme-trinote div#right-pane .card-body a {
+  color: var(--trinote-color-blue-light);
+}
+
+body.theme-trinote div#right-pane .card-body th,
+body.theme-trinote div#right-pane .card-body td {
+  color: var(--trinote-color-gray-dark);
+}
+
+body.theme-trinote .calendar-widget .calendar-week {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+body.theme-trinote .calendar-widget .calendar-week span {
+  font-size: 8px;
+}
+
+/* ============================================================================= */
+/* ================================ LAYOUT ===================================== */
+/* ============================================================================= */
+
+body.theme-trinote #root-widget .gutter.gutter-horizontal {
+  background: linear-gradient(to bottom, transparent, #2aa19233, transparent);
+  border: 1px dotted var(--trinote-color-gray-light);
+  border-top: none;
+  border-bottom: none;
+  margin: -5px 5px -5px 5px;
+}
