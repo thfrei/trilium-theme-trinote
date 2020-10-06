@@ -3,24 +3,8 @@
 /* 
 Trinote: A onenote (tm) inspired template with dark mode
 
-* Palette generator:
-http://colormind.io/bootstrap/
-F3F8EF, EFA765, E8523F, 706C74, 325892
-* Convert colors:
-https://www.w3schools.com/colors/colors_picker.asp
-* Relative Colors css:
-https://stackoverflow.com/questions/55329996/how-to-create-color-shades-using-css-variables-similar-to-darken-of-sass
-
-    --color:0, 100%;
-    --l:50%; 
-    
-    --color-primary: hsl(var(--color),var(--l));
-    --color-primary-darker: hsl(var(--color),calc(var(--l) - 5%));
-    --color-primary-darkest: hsl(var(--color),calc(var(--l) - 10%)); 
-
-
 A theme for Trilium (https://github.com/zadam/trilium)
-template used for this template: MELON 3 by https://github.com/raphwriter/
+template used for this theme: MELON 3 by https://github.com/raphwriter/
 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* ===================================================================== */
