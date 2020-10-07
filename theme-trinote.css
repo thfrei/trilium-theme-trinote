@@ -164,7 +164,9 @@ body.theme-trinote div#root-widget a:hover {
   color: var(--trinote-color-blue-dark);
 }
 
-
+body.theme-trinote a.unhoist-button {
+  color: var(--trinote-color-paper) !important;
+}
 
 /* font variables */
 body.theme-trinote div#root-widget {
