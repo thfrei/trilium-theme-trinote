@@ -14,24 +14,27 @@ html {
   /* color variables */
   --trinote-primary-base: hsl(212, 30%, 40%);
   --trinote-primary-hs: 212, 30%;
-  --trinote-primary-l: 35%;
+  --trinote-primary-l: 40%;
   --trinote-primary: hsl(var(--trinote-primary-hs), var(--trinote-primary-l));
-  --trinote-primary-darker: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l)-5%));
-  --trinote-primary-darkest: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l)-10%));
+  --trinote-primary-lightest: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l) + 45%));
+  --trinote-primary-darker: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l) - 5%));
+  --trinote-primary-darkest: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l) - 10%));
 
   --trinote-secondary: #e9c46a;
 
-  --trinote-accent-base: hsl(12, 76%, 60%);
-  --trinote-accent-hs: 12, 76%;
-  --trinote-accent-l: 60%;
+  --trinote-accent-base: hsl(197, 73%, 27%);
+  --trinote-accent-hs: 197, 73%;
+  --trinote-accent-l: 27%;
   --trinote-accent: hsl(var(--trinote-accent-hs), var(--trinote-accent-l));
-  --trinote-accent-light: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l)+5%));
-  --trinote-accent-text: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l)+25%));
+  --trinote-accent-light: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l) + 5%));
+  --trinote-accent-text: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l) + 25%));
 
   --trinote-text: #f5f5f5;
   --trinote-background: hsl(0, 0%, 40%);
 
-  --trinote-color-blue-dark: var(--trinote-primary-darkest);  /*primary-darkest*/
+  /* original colors */
+
+  --trinote-color-blue-dark: var(--trinote-primary-darker);  /*primary-darkest*/
   --trinote-color-blue-dark-text: #a0b7c1; /*text-darker*/
   --trinote-color-blue-light: var(--trinote-primary); /*primary*/
   --trinote-color-yellow: #e9c46a; /*scondary*/
@@ -62,7 +65,7 @@ html {
 /* dark mode */
 @media (prefers-color-scheme: dark) {
   img {
-    opacity: 0.9;
+    opacity: 0.8;
     transition: opacity 0.5s ease-in-out;
   }
   img:hover {
@@ -160,6 +163,8 @@ body.theme-trinote div#root-widget a:visited,
 body.theme-trinote div#root-widget a:hover {
   color: var(--trinote-color-blue-dark);
 }
+
+
 
 /* font variables */
 body.theme-trinote div#root-widget {
@@ -876,7 +881,7 @@ body.theme-trinote .calendar-widget .calendar-week span {
 /* ============================================================================= */
 
 body.theme-trinote #root-widget .gutter.gutter-horizontal {
-  background: linear-gradient(to bottom, transparent, #2aa19233, transparent);
+  background: linear-gradient(to bottom, transparent, var(--trinote-primary-light), transparent);
   border: 1px dotted var(--trinote-color-gray-light);
   border-top: none;
   border-bottom: none;
