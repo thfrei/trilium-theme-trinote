@@ -12,42 +12,68 @@ template used for this theme: MELON 3 by https://github.com/raphwriter/
 /* colors */
 html {
   /* color variables */
+  
+  /* primary */
+  /* 
   --trinote-primary-base: hsl(212, 30%, 40%);
   --trinote-primary-hs: 212, 30%;
   --trinote-primary-l: 40%;
   --trinote-primary: hsl(var(--trinote-primary-hs), var(--trinote-primary-l));
   --trinote-primary-lightest: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l) + 45%));
   --trinote-primary-darker: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l) - 5%));
-  --trinote-primary-darkest: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l) - 10%));
-
-  --trinote-secondary: #e9c46a;
-
+  --trinote-primary-darkest: hsl(var(--trinote-primary-hs), calc(var(--trinote-primary-l) - 10%)); 
+  */
+  --trinote-primary:          hsl(212, 30%, 40%);
+  --trinote-primary-lightest: hsl(212, 30%, 85%);
+  --trinote-primary-darker:   hsl(212, 30%, 35%);
+  --trinote-primary-darkest:  hsl(212, 30%, 30%);
+  
+  /* accent */
+  /* 
   --trinote-accent-base: hsl(197, 73%, 27%);
   --trinote-accent-hs: 197, 73%;
-  --trinote-accent-l: 27%;
+  --trinote-accent-l: 27%; 
   --trinote-accent: hsl(var(--trinote-accent-hs), var(--trinote-accent-l));
   --trinote-accent-light: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l) + 5%));
   --trinote-accent-text: hsl(var(--trinote-accent-hs), calc(var(--trinote-accent-l) + 25%));
+  */
 
-  --trinote-text: #f5f5f5;
-  --trinote-background: hsl(0, 0%, 40%);
+  --trinote-accent: hsl(197, 73%, 25%);
+  --trinote-accent-light: hsl(197, 73%, 30%);
+  --trinote-accent-text: hsl(197, 73%, 50%);
+
+  /* light-base */
+  /*
+  --trinote-light-base: #f2f2f2;
+  --trinote-light-base-hs: 0, 0%;
+  --trinote-light-base-l: 90%;
+  --trinote-light: hsl(var(--trinote-light-base-hs), var(--trinote-light-base-l));;
+  --trinote-light-darker: hsl(var(--trinote-light-base-hs), calc(var(--trinote-light-base-l) - 10%));
+  */
+  
+  --trinote-light: hsl(0, 0%, 90%);
+  --trinote-light-darker: hsl(0, 0%, 85%);
+
+  --trinote-background: #ffffff;
+  --trinote-color-gray-text: #333333;
+  --trinote-color-gray-light-text: #999999;
+  --trinote-note-background: #ffffff;
+
+  --trinote-color-shadow: rgba(181, 181, 181, 0.6);
+
+  
 
   /* original colors */
 
   --trinote-color-blue-dark: var(--trinote-primary-darker);  /*primary-darkest*/
-  --trinote-color-blue-dark-text: #a0b7c1; /*text-darker*/
+  --trinote-color-blue-dark-text: var(--trinote-primary-lightest); /*text-darker*/
   --trinote-color-blue-light: var(--trinote-primary); /*primary*/
-  --trinote-color-yellow: #e9c46a; /*scondary*/
   --trinote-color-orange-light: var(--trinote-accent-light); /*accent-light*/
   --trinote-color-orange-dark: var(--trinote-accent); /*accent*/
-  --trinote-color-gray: #d6d6d6; 
-  --trinote-color-gray-text: #333;
-  --trinote-color-gray-light: var(--trinote-text); /*text*/
-  --trinote-color-gray-light-text: #999;
-  --trinote-color-gray-dark: #666;
-  --trinote-color-paper: #ecebe3;
-  --trinote-color-shadow: rgba(181, 181, 181, 0.6);
-  --trinote-note-background: white;
+  --trinote-color-gray: var(--trinote-light); 
+  --trinote-color-gray-light: var(--trinote-light); /*text*/
+  --trinote-color-paper: var(--trinote-light);
+  --trinote-color-gray-dark: var(--trinote-color-gray-text);
   --active-item-text-color: var(--trinote-accent-light);
   --active-item-background-color: var(--trinote-accent-light);
 
